@@ -7,13 +7,20 @@
 //  See the LICENSE file distributed with this work for the terms under
 //  which Square, Inc. licenses this file to you.
 
-#import "TSQCalendarCell.h"
-
 /** The `TSQCalendarRowCell` class is a cell that represents one week in the calendar.
  
  Each of the seven columns can represent a day that's in this month, a day that's not in this month, a selected day, today, or an unselected day. The cell uses several images placed strategically to achieve the effect.
  */
-@interface TSQCalendarRowCell : TSQCalendarCell
+
+@class TSQCalendarView;
+@interface TSQCalendarRowCell : UITableViewCell
+
+@property (nonatomic, strong) NSDate *firstOfMonth;
+@property (nonatomic, readonly) NSUInteger daysInWeek;
+@property (nonatomic, strong) NSCalendar *calendar;
+@property (nonatomic, weak) TSQCalendarView *calendarView;
+@property (nonatomic) CGSize shadowOffset;
+@property (nonatomic) CGFloat columnSpacing;
 
 /** @name Images */
 
